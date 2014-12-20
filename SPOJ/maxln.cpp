@@ -9,7 +9,7 @@ int main(void)
     cin >> testcases;
     while(i <= testcases)
     {
-        long int radius;
+        double radius;
         cin >> radius;
         cout.setf(ios::fixed,ios::floatfield);
         cout.precision(2);

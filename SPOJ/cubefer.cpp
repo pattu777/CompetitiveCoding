@@ -54,6 +54,8 @@ int main(void)
     vec[0] = vec[1] = 0;
     mymap[1] = 1;
     sieve_cube();
+    //print_cubes(1000000);
+    return 0;
 
     int testcases, i=1;
     cin >> testcases;

@@ -1,38 +1,43 @@
 #include<iostream>
-#include<string>
 #include<math.h>
 #include<vector>
 #include<algorithm>
 using namespace std;
+typedef long long ll;
 
-int get_dig(int base,long long int index)
+int dig(int a,ll b)
 {
-    if((index%10)==0)
-        return 0;
+  if(a==0)
+    return 0;
+  else if((a==1)||(b==0))
+    return 1;
+  else
+  {
     vector<int> v;
-    long int x=0;
-    for(long long int i=1;i<=index; i++,x++)
+    long x=0;
+    for(ll i=1;i<=b;i++,x++)
     {
-        long long int a=pow(base,i);
-        if(!binary_search(v.begin(), v.end(), a%10))
-            v.push_back(a%10);
-        else
-            break;
+      ll c=pow(a,i);
+      if(!binary_search(v.begin(),v.end(),c%10))
+        v.push_back(c%10);
+      else
+        break;
     }
-    return v[index%x];
+    if(x==1)
+      return v[0];
+    else
+      return v[b%x-1];
+  }
 }
-
 int main()
 {
-    int tcase;
-    cin >> tcase;
-    while(tcase--)
-    {
-        long long int index;
-        int base;
-        cin >> base >> index;
-        cout << get_dig(base,index) << endl;
-    }
-    return 0;
+  int t;
+  cin >> t;
+  while(t--)
+  {
+    ll a,b;
+    cin >> a >> b;
+    cout << dig(a,b) << endl;
+  }
+  return 0;
 }
-
