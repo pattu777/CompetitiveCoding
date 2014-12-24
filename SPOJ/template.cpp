@@ -53,59 +53,22 @@ void string_tokenizer(vector<string> vec, string s)
     return vec;
 }
 
-struct POINT{
-  int x, y;
-  void wczyt(void){
-    scanf("%d%d", &x, &y);
-  }
-};
+void func(ll num)
+{
 
-inline int det(POINT a, POINT b, POINT c){
-  return (b.x-a.x) * (c.y-a.y) - (c.x-a.x) * (b.y-a.y);
 }
 
-inline int skal(POINT a, POINT b, POINT c){
-  return (b.x-a.x) * (c.x-a.x) + (c.y-a.y) * (b.y-a.y);
-}
-
-POINT A, B, C;
-
-int main(){
-  int te;
-  scanf("%d", &te);
-  FOR(nr, 1, te){
-     A.wczyt();
-     B.wczyt();
-     C.wczyt();
-     printf("Case #%d: ", nr);
-     char *s1, *s2;
-     if (det(A, B, C) == 0){
-       s1 = "not"; s2 = "a";
-     }else{
-       s1 = "scalene";
-       if (skal(A, B, B) == skal(A, C, C)) s1 = "isosceles";
-       if (skal(C, B, B) == skal(A, C, C)) s1 = "isosceles";
-       if (skal(A, B, B) == skal(B, C, C)) s1 = "isosceles";
-
-       s2 = "acute";
-       {
-         int c = skal(A, B, C);
-         if (c == 0) s2 = "right";
-         else if (c < 0) s2 = "obtuse";
-       }
-       {
-         int c = skal(C, A, B);
-         if (c == 0) s2 = "right";
-         else if (c < 0) s2 = "obtuse";
-       }
-       {
-         int c = skal(B, A, C);
-         if (c == 0) s2 = "right";
-         else if (c < 0) s2 = "obtuse";
-       }
-     }
-     printf("%s %s triangle\n", s1, s2);
-  }
+int main()
+{
+    string line;
+    getline(cin, line);
+    int tcase=atoi(line.c_str());
+    while(tcase--)
+    {
+        ll num;
+        cin >> num;
+        func();
+    }
 	return 0;
 }
 

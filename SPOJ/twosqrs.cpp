@@ -5,22 +5,26 @@
 
 using namespace std;
 
-bool is_square_sum(long long int num)
+bool is_square_sum(unsigned long long int num)
 {
-    for(long long int i=0; ;i++)
+    for(unsigned long long int i=0; i<=sqrt(num);i++)
     {
-        for(long long int j=num-1; ; j++)
-        {
-            if()
+        unsigned long long int pwi=pow(i,2);
+        long double pwj=sqrt(num-pwi);
+        unsigned long long int pw=pwj;
+        if(pw==pwj)
+            return true;
+    }
+    return false;
 }
 
 int main(void)
 {
-    int testcases;
-    cin >> testcases;
-    while(testcases--)
+    int tcase;
+    cin >> tcase;
+    while(tcase--)
     {
-        long long int num;
+        unsigned long long int num;
         cin >> num;
         if(is_square_sum(num))
             cout << "Yes" << endl;

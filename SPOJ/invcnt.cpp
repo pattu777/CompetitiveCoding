@@ -5,28 +5,25 @@
 using namespace std;
 
 int main(void)
-{
+{ 
     string line;
-
-    int testcases;
-    cin >> testcases;
-
-    while(testcases--)
+    int tcase;
+    cin >> tcase;
+    getline(cin,line);
+    while(tcase--)
     {
-        getline(cin,line);
         int size;
         cin >> size;
-        long long int* vec = new long long int[size];
-        long long int counter = 0;
-
+        long int* vec = new long int[size];
+        long int counter = 0;
         for(int j=0; j<size; j++)
         {
-            long long int num;
+            long int num;
             cin >> num;
             vec[j] = num;
         }
 
-        for(int j=0; j< size; j++)
+        for(int j=0; j<size-1; j++)
         {
             for(int k=j+1; k<size; k++)
             {
@@ -36,6 +33,7 @@ int main(void)
         }
 
         cout << counter << endl;
+        getline(cin,line);
     }
     return 0;
 }
