@@ -17,14 +17,14 @@
 
 using namespace std;
 
-typedef vector< int > vi;
-typedef vector< vi > vvi;
-typedef long long ll;
-typedef vector< ll > vll;
-typedef vector< double > vd;
-typedef vector< string > vs;
-typedef pair<int,int> pii;
-typedef vector<pii> vpii;
+typedef vector< int > VI;
+typedef vector< VI > VVI;
+typedef long long LL;
+typedef vector< LL > VLL;
+typedef vector< double > VD;
+typedef vector< string > VS;
+typedef pair<int,int> PII;
+typedef vector<PII> VPII;
 typedef istringstream iss;
 
 #define ALL(x) x.begin(),x.end()
@@ -32,14 +32,14 @@ typedef istringstream iss;
 #define FOR(var,pocz,koniec) for (int var=(pocz); var<=(koniec); ++var)
 #define FORD(var,pocz,koniec) for (int var=(pocz); var>=(koniec); --var)
 #define FOREACH(it, X) for(__typeof((X).begin()) it = (X).begin(); it != (X).end(); ++it)
-#define pb push_back
-#define pf push_front
+#define PB push_back
+#define PF push_front
 #define MP(a,b) make_pair(a,b)
 #define ST first
 #define ND second
 #define SIZE(x) (int)x.size()
 
-vi& string_tokenizer(vector<string> vec, string s)
+void string_tokenizer(vector<string> vec, string s)
 {
     string delimiters = " ";
     size_t current;
@@ -53,34 +53,19 @@ vi& string_tokenizer(vector<string> vec, string s)
     return vec;
 }
 
-/* 
- * IP - Space seperated numbers as a string
- * OP - vector containint integers
- */
-vi& get_num(string str, vi& vec)
+ll gcd(ll num1, ll num2)
 {
-    iss s(str);
-    while(!s.eof())
-    {
-        string x;
-        s >> x;
-        vec.pb(atoi(x.c_str()));
-    }
-    return vec;
+    if(num2==0)
+        return num1;
+    else
+        return gcd(num2, num1%num2);
 }
 
 int main()
 {
-    string line;
-    getline(cin, line);
-    int tcase=atoi(line.c_str());
-    while(tcase--)
-    {
-        ll num;
-        cin >> num;
-    }
-	return 0;
+    ll num1, num2;
+    cin >> num1 >> num2;
+    cout << gcd(num1, num2) << endl;
+    return 0;
 }
-
-
 

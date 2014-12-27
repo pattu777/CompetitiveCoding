@@ -39,24 +39,6 @@ typedef istringstream iss;
 #define ND second
 #define SIZE(x) (int)x.size()
 
-vi& string_tokenizer(vector<string> vec, string s)
-{
-    string delimiters = " ";
-    size_t current;
-    size_t next = -1;
-    do
-    {
-        current = next + 1;
-        next = s.find_first_of( delimiters, current );
-        vec.push_back((s.substr( current, next - current )));
-    }while (next != string::npos);
-    return vec;
-}
-
-/* 
- * IP - Space seperated numbers as a string
- * OP - vector containint integers
- */
 vi& get_num(string str, vi& vec)
 {
     iss s(str);
@@ -69,18 +51,30 @@ vi& get_num(string str, vi& vec)
     return vec;
 }
 
-int main()
+int main(void)
 {
     string line;
     getline(cin, line);
     int tcase=atoi(line.c_str());
     while(tcase--)
     {
-        ll num;
-        cin >> num;
+        getline(cin, line);
+        ll num=atoi(line.c_str()), sum=0;
+
+        vi men, wm;
+        getline(cin, line);
+        men = get_num(line, men);
+        getline(cin, line);
+        wm = get_num(line, wm);
+
+        sort(men.begin(), men.end());
+        sort(wm.begin(), wm.end());
+
+        for(int i=0; i<num; i++)
+            sum += (men[i]*wm[i]);
+        
+        cout << sum << endl;
     }
 	return 0;
 }
-
-
 
