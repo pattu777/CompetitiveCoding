@@ -39,44 +39,28 @@ typedef istringstream iss;
 #define ND second
 #define SIZE(x) (int)x.size()
 
-void print_graph(int nodes, VVI& gr)
+void dfs(int vertex, VVI& gr, VI& visited)
 {
-    for(int i=1; i<=nodes; i++)
+    if(visited[vertex] > 1)
+        return;
+    else
     {
-        for(VI::iterator it=gr[i].begin(); it != gr[i].end(); it++)
-            cout << i << " --- " << *it << endl;
-    }
-}
-
-void dfs_visit(int vertex, VVI& gr, VI& visited)
-{
-    if(!visited[vertex])
-    {
-        //cout << "Inside dfs_visit Node -> " << vertex << endl;
         visited[vertex] += 1;
         for(VI::iterator it=gr[vertex].begin(); it!=gr[vertex].end(); it++)
-            dfs_visit(*it, gr, visited);
+            dfs(*it, gr, visited);
     }
 }
 
-bool dfs(int nodes, VVI& gr, VI& visited)
-{
-    for(int vertex=1; vertex<=nodes; vertex++)
-        dfs_visit(vertex, gr, visited);
-
-    for(int i=1; i<=nodes; i++)
-        cout << i << " === " << visited[i] << endl;
-    /*{
-        if(visited[i]>1)
-            return false;
-    }*/
-    return true;
-}
-
-bool is_tree(VVI& gr, VI& visited)
+bool is_tree(int nodes, VVI& gr, VI& visited)
 {
     int st_vertex=1;
     dfs(st_vertex, gr, visited);
+    for(int i=1; i<=nodes; i++)
+    {
+        if(visited[i] > 1)
+            return false;
+    }
+    return true;
 }
 
 int main()
@@ -99,8 +83,8 @@ int main()
             lstream >> u >> v;
             gr[u].push_back(v);
         }
-
-        if(dfs(nodes, gr, visited))
+        
+        if(is_tree(nodes, gr, visited))
             cout << "YES" << endl;
         else
             cout << "NO" << endl;
