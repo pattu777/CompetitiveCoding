@@ -39,44 +39,31 @@ typedef istringstream iss;
 #define ND second
 #define SIZE(x) (int)x.size()
 
-vs& string_tokenizer(vs& vec, string s, string delimiters)
-{
-    size_t current;
-    size_t next = -1;
-    do
-    {
-        current = next + 1;
-        next = s.find_first_of( delimiters, current );
-        vec.push_back((s.substr( current, next - current )));
-    }while (next != string::npos);
-    return vec;
-}
+map<ll, ll> mymap;
+map<ll, ll>::iterator it;
 
-/* 
- * IP - Space seperated numbers as a string
- * OP - vector containint integers
- */
-vi& get_num(string str, vi& vec)
+
+ll get_usd(ll num)
 {
-    iss s(str);
-    while(!s.eof())
+    if(num == 0)
+        return 0;
+
+    ll x = mymap[num];
+    if(x == 0)
     {
-        string x;
-        s >> x;
-        vec.pb(atoi(x.c_str()));
+        x = max(num, get_usd(num/2) + get_usd(num/3) + get_usd(num/4));
+        mymap[num] = x;
     }
-    return vec;
+    return mymap[num];
 }
 
 int main()
 {
     string line;
-    getline(cin, line);
-    int tcase=atoi(line.c_str());
-    while(tcase--)
+    while(getline(cin, line))
     {
-        ll num;
-        cin >> num;
+        ll num=atoll(line.c_str());
+        cout << get_usd(num) << endl;
     }
 	return 0;
 }

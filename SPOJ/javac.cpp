@@ -71,12 +71,9 @@ vi& get_num(string str, vi& vec)
 int main()
 {
     string line;
-    getline(cin, line);
-    int tcase=atoi(line.c_str());
-    while(tcase--)
+    while(getline(cin, line))
     {
-        ll num;
-        cin >> num;
+        cout << change_case(line) << endl;
     }
 	return 0;
 }

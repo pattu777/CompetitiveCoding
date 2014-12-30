@@ -20,6 +20,7 @@ void will_stop(long long int num)
         else
         {
             vec.push_back(num);
+            sort(vec.begin(), vec.end());
             if((num%2) == 0)
                 num = num/2;
             else
@@ -32,8 +33,7 @@ void will_stop(long long int num)
 int main(void)
 {
     string line;
-    cin >> line;
-    vec.push_back(1);
+    getline(cin, line);
     int num = atoll(line.c_str());
     will_stop(num);
     return 0;

@@ -52,31 +52,32 @@ vs& string_tokenizer(vs& vec, string s, string delimiters)
     return vec;
 }
 
-/* 
- * IP - Space seperated numbers as a string
- * OP - vector containint integers
- */
-vi& get_num(string str, vi& vec)
+ll eval(string str)
 {
-    iss s(str);
-    while(!s.eof())
+    stack<char> mys;
+    ll var;
+    for(int i=0; i<str.size(); i++)
     {
-        string x;
-        s >> x;
-        vec.pb(atoi(x.c_str()));
-    }
-    return vec;
+        if(str[i] == '(')
+            mys.push(str[i]);
+        else if(str[i] == ")")
+        {
+            while(mys.top() != "(")
+            {
+                char ch=mys.top();
+            }
+        }
+        else if(str[i] == "+")
+
 }
 
 int main()
 {
-    string line;
-    getline(cin, line);
-    int tcase=atoi(line.c_str());
-    while(tcase--)
+    while(1)
     {
-        ll num;
-        cin >> num;
+        string line;
+        getline(cin, line);
+        cout << eval(line) << endl;
     }
 	return 0;
 }
