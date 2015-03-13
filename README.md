@@ -4,7 +4,7 @@ Schedule:
 ---------
 Target                            Start Date
 ------                            ----------
-1. SPOJ(150-200 Problems)         1st Dec 2014
+1. SPOJ(150-200 Problems)         1st March 2015
 
 
 TODO:
