@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class demo
+public class TemplateProblem
 {
     public static void main(String[] args)
     {
