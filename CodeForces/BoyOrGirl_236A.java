@@ -7,15 +7,12 @@ public class BoyOrGirl_236A
     {
         Scanner scan = new Scanner(System.in);
         String str = scan.next();
-        HashMap<Character, Integer> name = new HashMap<Character, Integer>();
+        Set<Character> name = new HashSet<Character>();
 
         for(int i=0; i<str.length(); i++)
         {
             char ch = str.charAt(i);
-            if(name.containsKey(ch))
-                name.put(ch, name.get(ch)+1);
-            else
-                name.put(str.charAt(i), 1);
+            name.add(str.charAt(i));
         }
 
         if((name.size()%2) == 0)
