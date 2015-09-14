@@ -1,3 +1,8 @@
+/*
+ * Author - Chinmaya Kr. Patanaik
+ * University - Charles University Prague
+ *
+ */
 import java.util.Scanner;
 import java.util.*;
 
