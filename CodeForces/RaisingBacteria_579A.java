@@ -12,14 +12,13 @@ public class RaisingBacteria_579A
     {
         Scanner scan = new Scanner(System.in);
         int x = scan.nextInt();
-        int count = 1, i=1;
-        double y = 1;
+        int count = 0;
         
-        while(y < x)
+        while(x>0)
         {
-            y = Math.pow(2, i);
-            count++;
-            i++;
+            count += x%2;
+            x /= 2;
         }
+        System.out.println(count);
     }
 }
