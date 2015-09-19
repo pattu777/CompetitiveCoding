@@ -2,3 +2,7 @@
 *.pyc
 *.swp
 *.class
+
+Facebook-HackerCup/*
+hackerrank/*
+CodeEval/*
