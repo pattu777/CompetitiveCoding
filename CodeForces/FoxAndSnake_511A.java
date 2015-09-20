@@ -24,7 +24,7 @@ public class FoxAndSnake_511A
                 {
                     box[i-1][j-1] = '.';
                     if(val)
-                        box[i-1][n-1] = '#';
+                        box[i-1][m-1] = '#';
                     else
                         box[i-1][0] = '#';
                 }
@@ -36,7 +36,7 @@ public class FoxAndSnake_511A
         }
         for(int i=0; i<n; i++)
         {
-            for(int j=0; j<n; j++)
+            for(int j=0; j<m; j++)
                 System.out.print(box[i][j]);
             System.out.println();
         }
