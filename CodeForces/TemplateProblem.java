@@ -15,7 +15,12 @@ public class
         Scanner scan = new Scanner(System.in);
         
         int levels = scan.nextInt();
-        // OR
-        //int levels = Integer.parseInt(reader.readLine());
+
+        solve();
     }        
+
+    public static void solve()
+    {
+
+    }
 }

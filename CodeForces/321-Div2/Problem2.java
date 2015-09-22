@@ -11,11 +11,34 @@ public class Problem2
 {
     public static void main(String[] args)
     {
-        //BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         Scanner scan = new Scanner(System.in);
-        
-        int levels = scan.nextInt();
-        // OR
-        //int levels = Integer.parseInt(reader.readLine());
+        int n = scan.nextInt();
+        long d = scan.nextLong();
+        long[] arr1 = new long[n];
+        long[] arr2 = new long[n];
+        long maxSum = 0;
+
+        for(int i=0; i<n; i++)
+        {
+            long x = scan.nextLong();
+            long y = scan.nextLong();
+            arr1[i] = x;
+            arr2[i] = y;
+        }
+
+        for(int i=0; i<n; i++)
+        {
+            long sum = arr2[i];
+            for(int j=i+1; j<n; j++)
+            {
+                if(Math.abs(arr1[j] - arr1[i]) < d)
+                    sum += arr2[j];
+                else
+                    break;
+            }
+            if(sum >= maxSum)
+                maxSum = sum;
+        }
+        System.out.println(maxSum);
     }        
 }
